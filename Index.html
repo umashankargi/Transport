@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshini & Raj Shekar | Engagement Gallery</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating Decorative Hearts -->
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <!-- =====================
+       HERO SECTION
+  ====================== -->
+  <header class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Harshini <span>&</span> Raj Shekar</h1>
+      <p>November 23, 2025</p>
+      <p>D.P.R. Garden, Valigonda, Yadadri - Bhuvanagiri</p>
+    </div>
+  </header>
+
+  <!-- =====================
+       GALLERY SECTION
+  ====================== -->
+  <section class="gallery-container">
+    <h2 class="section-title">Our Engagement Gallery</h2>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all"><i class="fas fa-images"></i> All Photos</button>
+      <button class="filter-btn" data-filter="ceremony"><i class="fas fa-ring"></i> </button>
+      <button class="filter-btn" data-filter="reception"><i class="fas fa-champagne-glasses"></i> </button>
+      <button class="filter-btn" data-filter="portraits"><i class="fas fa-camera"></i> </button>
+      <button class="filter-btn" data-filter="candid"><i class="fas fa-laugh"></i> </button>
+    </div>
+
+    <div class="gallery" id="photoGallery">
+      <div class="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading precious memories...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       LIGHTBOX VIEW
+  ====================== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="Selected Photo" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- =====================
+       FOOTER
+  ====================== -->
+  <footer>
+    <p>With the blessings of our beloved families</p>
+    <p>© 2025 Harshini & Raja Sheker | Crafted with <span class="footer-heart">❤️</span> to cherish our engagement memories</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
