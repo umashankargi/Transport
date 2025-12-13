@@ -1,79 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harshini & Raj Shekar | Engagement Gallery</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harshini & Raj Shekar | Forever & Always</title>
+    
+    <meta name="description" content="Celebrating the engagement of Harshini & Raj Shekar. Join us in cherishing these beautiful moments.">
+    <meta property="og:title" content="Harshini & Raj Shekar | Engagement Gallery">
+    <meta property="og:description" content="A beautiful collection of engagement moments">
+    <meta property="og:image" content="A (103).JPG">
+    <meta property="og:type" content="website">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
 </head>
 <body>
-  <!-- Floating Decorative Hearts -->
-  <div class="floating-hearts" id="floatingHearts"></div>
 
-  <!-- =====================
-       HERO SECTION
-  ====================== -->
-  <header class="hero-section">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Harshini <span>&</span> Raj Shekar</h1>
-      <p>November 23, 2025</p>
-      <p>D.P.R. Garden, Valigonda, Yadadri - Bhuvanagiri</p>
-    </div>
-  </header>
-
-  <!-- =====================
-       GALLERY SECTION
-  ====================== -->
-  <section class="gallery-container">
-    <h2 class="section-title">Our Engagement Gallery</h2>
-
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all"><i class="fas fa-images"></i> All Photos</button>
-      <button class="filter-btn" data-filter="ceremony"><i class="fas fa-ring"></i> </button>
-      <button class="filter-btn" data-filter="reception"><i class="fas fa-champagne-glasses"></i> </button>
-      <button class="filter-btn" data-filter="portraits"><i class="fas fa-camera"></i> </button>
-      <button class="filter-btn" data-filter="candid"><i class="fas fa-laugh"></i> </button>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-text">Loading Memories...</div>
+        </div>
     </div>
 
-    <div class="gallery" id="photoGallery">
-      <div class="loading">
-        <div class="loading-spinner"></div>
-        <p>Loading precious memories...</p>
-      </div>
+    <!-- Intro Animation -->
+    <div id="intro-overlay">
+        <div class="intro-half left-half">
+            <img src="1.png" alt="Groom">
+        </div>
+        <div class="intro-half right-half">
+            <img src="2.png" alt="Bride">
+        </div>
     </div>
-  </section>
 
-  <!-- =====================
-       LIGHTBOX VIEW
-  ====================== -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
-    <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
-    <div class="lightbox-content">
-      <img class="lightbox-img" id="lightboxImg" src="" alt="Selected Photo" />
-      <div class="lightbox-caption" id="lightboxCaption"></div>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Harshini <span>&</span> Raj Shekar</h1>
+            <p>Our Engagement</p>
+            <p>October 26, 2025</p>
+            <p>Shree Devi Garden, Valigonda, Yadadri - Bhuvanagiri</p>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Engagement Gallery</h2>
+                <p class="section-subtitle">A Collection of Beautiful Moments</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-images"></i> All Moments
+                </button>
+                <button class="filter-btn" data-filter="ceremony">
+                    <i class="fas fa-ring"></i> Ceremony
+                </button>
+                <button class="filter-btn" data-filter="reception">
+                    <i class="fas fa-champagne-glasses"></i> Reception
+                </button>
+                <button class="filter-btn" data-filter="portraits">
+                    <i class="fas fa-camera"></i> Portraits
+                </button>
+                <button class="filter-btn" data-filter="candid">
+                    <i class="fas fa-laugh"></i> Candid
+                </button>
+            </div>
+
+            <!-- Special Dinner Button -->
+            <div class="dinner-button-container">
+                <a href="https://rajharshini.netlify.app/" class="dinner-button" target="_blank" id="dinnerButton">
+                    <i class="fas fa-utensils"></i>
+                    <div class="dinner-button-text">
+                        <span class="dinner-button-main">View Dinner Photos</span>
+                        <span class="dinner-button-sub">Exclusive Collection</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery" id="photoGallery">
+                <!-- Gallery items will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-hearts">💍 ❤️ ✨</div>
+            <h3 class="footer-title">Harshini & Raj Shekar</h3>
+            <p class="footer-quote">"In your light I learn how to love. In your beauty, how to make poems."</p>
+            <p class="footer-date">October 26, 2025</p>
+            <p class="footer-location">Shree Devi Garden, Valigonda, Yadadri - Bhuvanagiri</p>
+            <p style="color: var(--text-light); font-size: 0.8rem; margin-top: 20px;">
+                Made with ❤️ for our special day
+            </p>
+        </div>
+    </footer>
+
+    <!-- Dinner Preview Modal -->
+    <div class="dinner-preview-overlay" id="dinnerPreviewOverlay"></div>
+    <div class="dinner-preview" id="dinnerPreview">
+        <button class="dinner-preview-close" id="dinnerPreviewClose">&times;</button>
+        <div class="dinner-preview-header">
+            <h3 class="dinner-preview-title">Dinner Celebration</h3>
+            <p class="dinner-preview-subtitle">Exclusive Collection</p>
+        </div>
+        <div class="dinner-preview-image">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=500&h=300&q=80" alt="Dinner Celebration">
+        </div>
+        <div class="dinner-preview-content">
+            <p>Discover exclusive photos from our beautiful dinner celebration. Relive the magical moments, delicious food, and joyful celebrations.</p>
+            <p>Click below to view the complete dinner album.</p>
+        </div>
+        <div class="dinner-preview-buttons">
+            <a href="https://rajharshini.netlify.app/" class="dinner-preview-btn primary" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                View Dinner Album
+            </a>
+            <button class="dinner-preview-btn secondary" id="dinnerPreviewCloseBtn">
+                <i class="fas fa-times"></i>
+                Close Preview
+            </button>
+        </div>
     </div>
-  </div>
 
-  <!-- =====================
-       FOOTER
-  ====================== -->
-  <footer>
-    <p>With the blessings of our beloved families</p>
-    <p>© 2025 Harshini & Raja Sheker | Crafted with <span class="footer-heart">❤️</span> to cherish our engagement memories</p>
-  </footer>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="lightbox-toolbar" id="lightboxToolbar"></div>
+        
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="Engagement Photo">
+        </div>
+    </div>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
