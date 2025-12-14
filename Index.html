@@ -1,640 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harshini & Raj Shekar | Engagement</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Shekar & Harshini | Forever & Always</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
     <style>
-        /* ===================================
-           1. GLOBAL VARIABLES & RESET
-        =================================== */
+        /* --- General Reset & Typography --- */
         :root {
-            --primary: #b76e79;      /* Dusty Rose */
-            --gold: #c5a059;         /* Muted Gold */
-            --bg: #faf9f6;           /* Alabaster */
-            --text-main: #2c2c2c;
-            --text-muted: #666666;
+            --primary-color: #b76e79; /* Dusty Rose */
+            --secondary-color: #c5a059; /* Muted Gold */
+            --bg-color: #faf9f6; /* Alabaster White */
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Montserrat', sans-serif;
             --font-script: 'Great Vibes', cursive;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            overflow-x: hidden; /* Prevent scroll during intro */
+            font-family: var(--font-serif);
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 18px;
         }
 
-        /* Allow scrolling only after intro */
-        body.intro-complete { overflow-y: auto; }
-        body:not(.intro-complete) { overflow-y: hidden; height: 100vh; }
-/* ===================================
-   6. SPECIAL DINNER BUTTON STYLES
-=================================== */
-.dinner-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    padding: 16px 45px;
-    background: linear-gradient(135deg, var(--gold), var(--primary));
-    color: white;
-    text-decoration: none;
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
-}
+        body.no-scroll { overflow: hidden; }
 
-/* Hover Effect */
-.dinner-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(183, 110, 121, 0.4);
-    background: linear-gradient(135deg, var(--primary), var(--gold)); /* Swaps gradient */
-}
+        /* --- UI COMPONENTS --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
 
-/* Icon styling */
-.dinner-btn i {
-    margin-right: 12px;
-    font-size: 1.1rem;
-}
+        /* Buttons */
+        .special-btn {
+            background: linear-gradient(135deg, var(--secondary-color), #d4af62);
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
 
-/* Shine animation overlay */
-.dinner-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: 0.5s;
-}
+        .special-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5);
+        }
 
-.dinner-btn:hover::after {
-    left: 100%;
-}
-
-        /* ===================================
-           2. IMPROVED LOADING ANIMATION
-        =================================== */
-        .loading-screen {
+        /* --- PRELOADER (Restored GIF) --- */
+        #preloader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg);
-            z-index: 10001;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #faf9f6;
+            z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             transition: opacity 0.8s ease, visibility 0.8s ease;
-            opacity: 1;
-            visibility: visible;
+        }
+        
+        #preloader.hide { opacity: 0; visibility: hidden; }
+
+        .preloader-gif {
+            width: 150px;
+            height: 150px;
+            object-fit: contain; /* Keeps GIF proportions */
+            margin-bottom: 20px;
+            /* Optional: makes it circular if your gif is square */
+            border-radius: 50%; 
         }
 
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
+        /* --- HEADER & NAV --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid transparent;
         }
 
-        /* Elegant Loading Container */
-        .loading-container {
-            text-align: center;
-            position: relative;
-            padding: 40px;
-            max-width: 500px;
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Animated Wedding Rings */
-        .rings-container {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 40px;
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 3px solid transparent;
-            animation-duration: 2.5s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-        }
-
-        .ring-outer {
-            width: 100%;
-            height: 100%;
-            border-top-color: var(--gold);
-            border-right-color: var(--gold);
-            animation-name: rotateClockwise;
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
-        }
-
-        .ring-inner {
-            width: 70%;
-            height: 70%;
-            top: 15%;
-            left: 15%;
-            border-bottom-color: var(--primary);
-            border-left-color: var(--primary);
-            animation-name: rotateCounterClockwise;
-            box-shadow: 0 0 10px rgba(183, 110, 121, 0.3);
-        }
-
-        /* Heart in the center */
-        .heart {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--primary);
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        /* Loading Text */
-        .loading-text {
+        .logo {
             font-family: var(--font-script);
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            position: relative;
+            z-index: 1002;
         }
 
-        .loading-subtext {
+        /* Desktop Nav */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-link {
             font-family: var(--font-sans);
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            color: var(--text-muted);
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            position: relative;
+            transition: color 0.3s;
         }
 
-        /* Progress Bar */
-        .progress-container {
-            width: 300px;
-            height: 2px;
-            background-color: rgba(183, 110, 121, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--gold));
-            border-radius: 10px;
+        .nav-link:not(.btn)::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0; width: 0; height: 1px;
+            background: var(--primary-color);
             transition: width 0.3s ease;
         }
+        .nav-link:hover::after { width: 100%; }
 
-        /* Percentage Counter */
-        .percentage {
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Update this URL to your specific hero image */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('photos/1 (1).JPG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-family: var(--font-script);
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            margin-bottom: 10px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-family: var(--font-sans);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            display: inline-block;
+            padding: 10px 20px;
+        }
+
+        .hero-date {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 80px 0; }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-family: var(--font-serif);
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* --- GALLERY --- */
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
             font-family: var(--font-sans);
             font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 15px;
-            letter-spacing: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            color: var(--text-light);
         }
 
-        /* Loading Dots Animation */
-        .loading-dots {
-            display: inline-block;
-            margin-top: 20px;
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
         }
 
-        .loading-dots span {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            margin: 0 4px;
-            opacity: 0.6;
+        /* Masonry Layout */
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 20px;
         }
 
-        .loading-dots span:nth-child(1) {
-            animation: pulse 1.5s infinite 0.1s;
-        }
-
-        .loading-dots span:nth-child(2) {
-            animation: pulse 1.5s infinite 0.3s;
-        }
-
-        .loading-dots span:nth-child(3) {
-            animation: pulse 1.5s infinite 0.5s;
-        }
-
-        /* Animations */
-        @keyframes rotateClockwise {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes rotateCounterClockwise {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(-360deg); }
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.2); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.3); opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===================================
-           3. YOUR INTRO ANIMATION (EXACT)
-        =================================== */
-        #intro-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
-            z-index: 9999;
-            display: flex;
-            pointer-events: none;
-            background: linear-gradient(135deg, #faf9f6, #f5f0eb);
-            /* Ensure it stays on top until finished */
-            transition: visibility 0s linear 1.2s; 
-        }
-
-        .intro-half {
-            width: 50%; height: 100%;
-            display: flex; align-items: center;
+        .photo-card {
+            break-inside: avoid;
+            margin-bottom: 20px;
             position: relative;
-            transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 8px;
             overflow: hidden;
-        }
-
-        /* Gradient Overlays */
-        .intro-half::before {
-            content: ''; position: absolute; width: 100%; height: 100%;
-            z-index: 1; transition: opacity 1s ease;
-        }
-
-        .left-half::before {
-            background: linear-gradient(90deg, rgba(250, 249, 246, 0.9), rgba(250, 249, 246, 0.7), transparent);
-            left: 0;
-        }
-
-        .right-half::before {
-            background: linear-gradient(270deg, rgba(250, 249, 246, 0.9), rgba(250, 249, 246, 0.7), transparent);
-            right: 0;
-        }
-
-        /* Initial Positions (Off Screen) */
-        .left-half { justify-content: flex-end; transform: translateX(-100%); }
-        .right-half { justify-content: flex-start; transform: translateX(100%); }
-
-        .intro-half img {
-            max-height: 90vh; max-width: 90%;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
-            z-index: 2;
-            transition: transform 1s ease;
-        }
-
-        /* ANIMATION STATE 1: Slide In */
-        body.start-anim .left-half,
-        body.start-anim .right-half {
-            transform: translateX(0);
-        }
-
-        body.start-anim .intro-half::before { opacity: 0; }
-        body.start-anim .intro-half img { transform: scale(1.05); }
-
-        /* ANIMATION STATE 2: Fade Out */
-        body.finish-anim #intro-overlay {
+            box-shadow: var(--shadow-soft);
+            cursor: zoom-in;
+            background: #eee;
             opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            visibility: hidden;
-        }
-
-        body.finish-anim .intro-half img {
-            transform: scale(0.95);
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* ===================================
-           4. HERO SECTION
-        =================================== */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex; justify-content: center; align-items: center;
-            text-align: center; color: white;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('A (103).JPG') center/cover fixed;
-        }
-
-        .hero-content {
-            z-index: 2; padding: 40px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 20px;
-            opacity: 0; /* Hidden initially */
             transform: translateY(30px);
-            transition: all 1.5s ease;
+            transition: all 0.6s ease-out;
+        }
+        
+        .photo-card.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        body.intro-complete .hero-content {
-            opacity: 1; transform: translateY(0);
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
         }
 
-        .hero h1 {
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- LIGHTBOX --- */
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.98);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .lightbox.active { display: flex; opacity: 1; }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 5px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .lb-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            padding: 10px;
+            line-height: 1;
+        }
+
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            padding: 20px;
+            cursor: pointer;
+            color: var(--text-dark);
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .lb-nav:hover { background: var(--primary-color); color: white; }
+        .lb-prev { left: 20px; }
+        .lb-next { right: 20px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        footer h3 {
             font-family: var(--font-script);
-            font-size: 6rem; line-height: 1;
+            font-size: 3rem;
+            color: white;
             margin-bottom: 20px;
         }
-        .hero h1 span { font-family: var(--font-serif); font-size: 0.5em; color: var(--gold); }
-        .hero p { font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px; }
 
-        /* ===================================
-           5. GALLERY & UTILS
-        =================================== */
-        .container { max-width: 1400px; margin: 0 auto; padding: 100px 20px; }
-        
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-title { font-family: var(--font-serif); font-size: 3.5rem; color: var(--primary); }
-
-        /* Filter Buttons */
-        .filters { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 50px; }
-        .filter-btn {
-            padding: 12px 30px; border: 1px solid #ddd; background: white;
-            border-radius: 50px; cursor: pointer; transition: 0.3s;
-            text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--primary); color: white; border-color: var(--primary);
-            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(183,110,121,0.3);
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Masonry Grid */
-        .gallery { column-count: 3; column-gap: 25px; }
-        @media(max-width: 900px){ .gallery { column-count: 2; } }
-        @media(max-width: 600px){ .gallery { column-count: 1; } }
-
-        .gallery-item {
-            break-inside: avoid; margin-bottom: 25px;
-            border-radius: 15px; overflow: hidden; position: relative;
-            cursor: pointer; opacity: 0; transform: translateY(30px);
-            transition: all 0.6s ease;
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 2; }
         }
-        .gallery-item.visible { opacity: 1; transform: translateY(0); }
 
-        .gallery-item img { width: 100%; display: block; transition: transform 0.5s; }
-        .gallery-item:hover img { transform: scale(1.05); }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0; right: 0;
+                height: 100vh;
+                width: 70%;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                transform: translateX(100%);
+                transition: transform 0.4s ease;
+                z-index: 1001;
+            }
 
-        /* Lightbox */
-        .lightbox {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255,255,255,0.95); z-index: 10000;
-            display: none; align-items: center; justify-content: center;
+            .nav-links.active { transform: translateX(0); }
+            .hero { background-attachment: scroll; }
+            .masonry-grid { column-count: 1; }
+            .lb-nav { font-size: 1.5rem; padding: 15px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+            .lb-prev { left: 10px; }
+            .lb-next { right: 10px; }
         }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .lb-close { position: absolute; top: 30px; right: 30px; font-size: 3rem; cursor: pointer; border: none; background: none; }
     </style>
 </head>
 <body>
 
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-container">
-            <div class="rings-container">
-                <div class="ring ring-outer"></div>
-                <div class="ring ring-inner"></div>
-                <div class="heart">
-                    <i class="fas fa-heart"></i>
-                </div>
-            </div>
-            
-            <div class="loading-text">H & R</div>
-            <div class="loading-subtext">Our Engagement Gallery</div>
-            
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            
-            <div class="percentage" id="percentage">0%</div>
-            
-            <div class="loading-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+    <div id="preloader">
+        <img src="load.gif" 
+             alt="Loading..." 
+             class="preloader-gif" 
+             onerror="this.onerror=null; this.src='https://cdn.pixabay.com/animation/2023/10/08/03/19/03-19-27-213_512.gif'">
+        <div style="font-family: var(--font-script); font-size: 2rem; color: var(--primary-color);">Raj Shekar & Harshini</div>
+        <p style="margin-top: 10px; letter-spacing: 2px; font-size: 0.9rem;">LOADING MEMORIES</p>
     </div>
 
-    <div id="intro-overlay">
-        <div class="intro-half left-half">
-            <img src="1.png" alt="Groom" onerror="this.style.opacity='0'">
-        </div>
-        <div class="intro-half right-half">
-            <img src="2.png" alt="Bride" onerror="this.style.opacity='0'">
-        </div>
-    </div>
+    <header id="mainHeader">
+        <div class="container header-inner">
+            <a href="#" class="logo">Raj & Harshini</a>
+            
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Harshini <span>&</span> Raj Shekar</h1>
-            <p>Our Engagement Gallery</p>
-            <p style="font-size: 0.9rem; margin-top: 5px;">October 26, 2025</p>
-            <a href="https://rajharshini.netlify.app" target="_blank" class="dinner-btn">
-            <i class="fas fa-utensils"></i> Dinner Pic's
-        </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#story" class="nav-link" onclick="toggleMenu()">Story</a></li>
+                <li><a href="#gallery" class="nav-link" onclick="toggleMenu()">Gallery</a></li>
+                <li>
+                    <a href="https://harshini-rajsheker.netlify.app/" target="_blank" class="special-btn">
+                        <i class="fas fa-ring"></i> Engagement
+                    </a>
+                </li>
+            </ul>
         </div>
     </header>
 
-
-    <section class="container">
-        <div class="section-header">
-            <h2 class="section-title">Captured Moments</h2>
-            <p style="color: #888; letter-spacing: 3px; margin-top: 10px;">FOREVER & ALWAYS</p>
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="reveal">We Said Yes</h2>
+            <p class="reveal">November 24, 2025 • Uppal</p>
+            <div class="hero-date reveal">Forever Begins Here</div>
+            <br>
+            <a href="#gallery" class="special-btn reveal" style="background: white; color: var(--text-dark) !important;">
+                View Photos
+            </a>
         </div>
-
-        <div class="filters">
-            <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
-            <button class="filter-btn" onclick="filterGallery('ceremony', this)">Ceremony</button>
-            <button class="filter-btn" onclick="filterGallery('reception', this)">Reception</button>
-            <button class="filter-btn" onclick="filterGallery('portraits', this)">Portraits</button>
-        </div>
-
-        <div class="gallery" id="galleryGrid">
-            <!-- Gallery items will be generated here -->
-        </div>
-
     </section>
-    
 
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <button class="lb-close">&times;</button>
-        <img id="lightboxImg" src="" onclick="event.stopPropagation()">
+    <section id="story">
+        <div class="container">
+            <h2 class="section-title reveal">Our Story</h2>
+            <p class="section-subtitle reveal">
+                Every moment was a chapter in our love story. From the first glance to the final dance, 
+                these memories will be cherished forever. Welcome to our digital album, where love is captured in every frame.
+            </p>
+        </div>
+    </section>
+
+    <section id="gallery" style="background: white;">
+        <div class="container">
+            <h2 class="section-title reveal">Captured Moments</h2>
+            
+            <div class="gallery-controls reveal">
+                <button class="filter-btn active" onclick="filterPhotos('all')">All</button>
+                <button class="filter-btn" onclick="filterPhotos('couple')">Couple</button>
+                <button class="filter-btn" onclick="filterPhotos('group')">Friends & Family</button>
+                <button class="filter-btn" onclick="filterPhotos('dance')">Fun Times</button>
+            </div>
+
+            <div class="masonry-grid" id="photo-grid">
+                </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Raj Shekar & Harshini</h3>
+            <p>Thank you for celebrating with us.</p>
+            <div style="margin-top: 30px; font-size: 1.5rem;">
+                <i class="fas fa-heart" style="color: var(--primary-color);"></i>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2025 Forever & Always</p>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" onclick="closeLightbox()">&times;</span>
+        <div class="lb-nav lb-prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></div>
+        <div class="lb-nav lb-next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></div>
+        <img id="lb-img" src="" alt="Full view">
     </div>
 
     <script>
-        const TOTAL_PHOTOS = 144; 
-        const FOLDER = 'M';
-        let allPhotos = [];
-        let imagesLoaded = 0;
-        let loadingComplete = false;
+        // --- CONFIGURATION ---
+        // Fallback images if local files are missing
+        const FALLBACK_IMAGES = [
+            'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1520854221256-17451cc330e7?auto=format&fit=crop&w=600&q=80',
+            'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=80'
+        ];
 
-        // 1. GENERATE DATA
-        function initData() {
-            for(let i=1; i<=TOTAL_PHOTOS; i++) {
-                let cat = 'candid';
-                if(i <= 40) cat = 'ceremony';
-                else if(i <= 80) cat = 'reception';
-                else if(i <= 110) cat = 'portraits';
+        // Your specific folder structure
+        const COUNTS = {
+            couple: 94,   
+            dance: 26,     
+            single: 11,    
+            group: 144    
+        };
+
+        let allPhotos = [];
+        let displayedPhotos = [];
+        let currentCategory = 'all';
+        let lightboxIndex = 0;
+
+        // Initialize Animation Observer (Scroll Fade-in)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.05 });
+
+        // --- INITIALIZATION ---
+        window.addEventListener('load', () => {
+            // Keep loader visible for at least 2 seconds so user sees the GIF
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hide');
                 
-                allPhotos.push({ id: i, src: `${FOLDER}/A (${i}).JPG`, category: cat });
-            }
+                // Remove from DOM entirely after fade out to prevent clicks
+                setTimeout(() => {
+                   document.getElementById('preloader').style.display = 'none'; 
+                }, 800);
+            }, 2000);
+
+            initData();
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
         }
 
-        // 2. RENDER GALLERY
-        function renderGallery(filter = 'all') {
-            const grid = document.getElementById('galleryGrid');
+        // Prepare Data
+        function initData() {
+            const add = (folder, cat, count) => {
+                for (let i = 1; i <= count; i++) {
+                    allPhotos.push({
+                        id: `${cat}-${i}`,
+                        src: `${folder}/1 (${i}).JPG`, 
+                        category: cat,
+                        fallback: FALLBACK_IMAGES[Math.floor(Math.random() * FALLBACK_IMAGES.length)]
+                    });
+                }
+            };
+
+            add('couple', 'couple', COUNTS.couple);
+            add('dance', 'dance', COUNTS.dance);
+            add('single', 'single', COUNTS.single);
+            add('photos', 'group', COUNTS.group); 
+
+            // Shuffle randomly
+            allPhotos.sort(() => Math.random() - 0.5);
+            
+            renderGallery();
+        }
+
+        // Render Gallery (ALL PHOTOS AT ONCE)
+        function renderGallery() {
+            const grid = document.getElementById('photo-grid');
             grid.innerHTML = '';
             
-            const photos = filter === 'all' ? allPhotos : allPhotos.filter(p => p.category === filter);
+            const filtered = currentCategory === 'all' 
+                ? allPhotos 
+                : allPhotos.filter(p => p.category === currentCategory);
             
-            photos.forEach((p, index) => {
-                const item = document.createElement('div');
-                item.className = 'gallery-item';
-                item.onclick = () => openLightbox(p.src);
-                
-                const img = document.createElement('img');
-                img.src = p.src;
-                img.loading = 'lazy';
-                img.alt = `Photo ${p.id}`;
-                
-                // Track when each image loads
-                img.onload = () => {
-                    imagesLoaded++;
-                    updateProgress();
-                };
-                
-                img.onerror = () => {
-                    img.style.display = 'none';
-                    imagesLoaded++;
-                    updateProgress();
-                };
-                
-                item.appendChild(img);
-                grid.appendChild(item);
-                
-                // Staggered fade in
-                setTimeout(() => item.classList.add('visible'), index * 50);
+            displayedPhotos = filtered; 
+            
+            filtered.forEach((photo, index) => {
+                const div = document.createElement('div');
+                div.className = 'photo-card';
+                div.innerHTML = `
+                    <img src="${photo.src}" 
+                         alt="Wedding Moment" 
+                         loading="lazy" 
+                         onclick="openLightbox(${index})"
+                         onerror="this.onerror=null; this.src='${photo.fallback}';">
+                `;
+                grid.appendChild(div);
+                observer.observe(div);
             });
         }
 
-        // 3. UPDATE LOADING PROGRESS
-        function updateProgress() {
-            const progress = Math.min(100, Math.round((imagesLoaded / TOTAL_PHOTOS) * 100));
-            const progressBar = document.getElementById('progressBar');
-            const percentage = document.getElementById('percentage');
-            
-            progressBar.style.width = `${progress}%`;
-            percentage.textContent = `${progress}%`;
-            
-            // When all images are loaded
-            if (progress === 100 && !loadingComplete) {
-                loadingComplete = true;
-                
-                // Add a small delay before starting the intro animation
-                setTimeout(() => {
-                    startIntroAnimation();
-                }, 800);
-            }
-        }
-
-        // 4. START INTRO ANIMATION
-        function startIntroAnimation() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            
-            // Hide loading screen with fade out
-            loadingScreen.classList.add('hidden');
-            
-            // Start intro animation (Slide In)
-            setTimeout(() => {
-                document.body.classList.add('start-anim');
-            }, 100);
-
-            // Finish intro animation (Fade Out Overlay)
-            // Wait 2.5 seconds for slide-in to complete and user to view images
-            setTimeout(() => {
-                document.body.classList.add('finish-anim');
-                document.body.classList.add('intro-complete'); // Enable scroll
-            }, 2500);
-            
-            // Remove loading screen from DOM after animation completes
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 1500);
-        }
-
-        // 5. INITIALIZATION
-        window.addEventListener('load', () => {
-            initData();
-            
-            // Start loading the gallery images
-            renderGallery();
-            
-            // Fallback: If images don't load properly, start intro after 5 seconds max
-            setTimeout(() => {
-                if (!loadingComplete) {
-                    console.log("Fallback: Starting intro after timeout");
-                    startIntroAnimation();
-                }
-            }, 5000);
-        });
-
-        // 6. UTILITIES
-        function filterGallery(cat, btn) {
+        function filterPhotos(cat) {
+            currentCategory = cat;
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderGallery(cat);
+            event.target.classList.add('active');
+            renderGallery();
         }
 
-        function openLightbox(src) {
-            const lb = document.getElementById('lightbox');
-            const img = document.getElementById('lightboxImg');
-            img.src = src;
-            lb.classList.add('active');
+        // --- LIGHTBOX LOGIC ---
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+
+        function openLightbox(index) {
+            lightboxIndex = index;
+            updateLightboxImage();
+            lightbox.classList.add('active');
+            document.body.classList.add('no-scroll');
         }
 
         function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
+            lightbox.classList.remove('active');
+            document.body.classList.remove('no-scroll');
         }
+
+        function changeSlide(n) {
+            lightboxIndex += n;
+            if (lightboxIndex >= displayedPhotos.length) lightboxIndex = 0;
+            if (lightboxIndex < 0) lightboxIndex = displayedPhotos.length - 1;
+            updateLightboxImage();
+        }
+
+        function updateLightboxImage() {
+            const photo = displayedPhotos[lightboxIndex];
+            lbImg.src = photo.src; 
+            lbImg.onerror = function() {
+                this.src = photo.fallback;
+            };
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
     </script>
 </body>
 </html>
-
