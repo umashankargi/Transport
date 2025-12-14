@@ -128,20 +128,25 @@
             transition: transform 1s ease;
         }
 
-        /* Mobile Adjustment for Intro Images */
-        @media (max-width: 768px) {
-            .intro-half img {
-                max-height: 60vh;
-                max-width: 140%; /* Allow wider overlap on phones */
-            }
-        }
-
         /* Animation States */
         body.start-anim .left-half,
         body.start-anim .right-half { transform: translateX(0); }
 
         body.finish-anim #intro-overlay { opacity: 0; visibility: hidden; transition: opacity 0.8s ease; }
         body.finish-anim .intro-half img { transform: scale(0.9); transition: transform 0.8s ease; }
+
+        /* ===================================
+           MOBILE FIX: REMOVE SPLIT INTRO
+        =================================== */
+        @media (max-width: 768px) {
+            /* This completely hides the split-image intro on mobile.
+               The user will see the Loading Ring -> then fade directly to the Hero section.
+               This is much cleaner and faster for phones.
+            */
+            #intro-overlay {
+                display: none !important;
+            }
+        }
 
         /* ===================================
            4. HERO SECTION (Flexible)
@@ -376,7 +381,7 @@
                 else if(i <= 80) cat = 'reception';
                 else if(i <= 110) cat = 'portraits';
                 
-                allPhotos.push({ id: i, src: `${FOLDER}/A (${i}).JPG`, category: cat });
+                allPhotos.push({ id: i, src: `${FOLDER}/1 (${i}).JPG`, category: cat });
             }
         }
 
